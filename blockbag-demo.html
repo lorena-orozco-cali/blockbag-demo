@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlockBag — Bolsos Premium Colombia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#c9a96e;--gold-light:#e8d5a3;--cream:#f5f0e8;--dark:#0a0805;
+  --mid:#1a1410;--card:#120f0a;--border:rgba(201,169,110,0.2);
+  --border-light:rgba(201,169,110,0.12);--green:#25d366;--text:#f0ebe3;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,8,5,0.96);backdrop-filter:blur(12px);z-index:200}
+.logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;letter-spacing:0.18em;color:var(--gold)}
+.logo span{font-style:italic}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--text);text-decoration:none;font-size:0.82rem;letter-spacing:0.12em;opacity:0.65;transition:opacity 0.2s;text-transform:uppercase}
+.nav-links a:hover{opacity:1;color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--dark);border:none;padding:0.55rem 1.4rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
+.nav-cta:hover{background:var(--gold-light)}
+
+/* HERO */
+.hero{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{padding:8rem 4rem 6rem;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero-eyebrow{font-size:0.72rem;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--gold)}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:5.2rem;font-weight:300;line-height:1.0;margin-bottom:2rem}
+.hero-h1 em{font-style:italic;color:var(--gold);display:block}
+.hero-sub{font-size:0.92rem;line-height:1.9;opacity:0.6;margin-bottom:3rem;max-width:420px}
+.hero-btns{display:flex;gap:1.2rem;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--dark);border:none;padding:1rem 2.2rem;font-family:'DM Sans',sans-serif;font-size:0.82rem;letter-spacing:0.12em;cursor:pointer;text-transform:uppercase;transition:all 0.25s}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);padding:1rem 2.2rem;font-family:'DM Sans',sans-serif;font-size:0.82rem;letter-spacing:0.12em;cursor:pointer;text-transform:uppercase;transition:all 0.25s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{background:var(--mid);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-img-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;width:100%;height:100%}
+.hero-img-cell{background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:5rem;border:1px solid var(--border-light);transition:background 0.3s}
+.hero-img-cell:hover{background:#1e180f}
+.hero-img-cell .ref{font-size:0.7rem;letter-spacing:0.2em;color:var(--gold);margin-top:0.8rem;opacity:0.7;text-transform:uppercase}
+.hero-img-cell .price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);opacity:0.8;margin-top:0.3rem}
+
+/* TICKER */
+.ticker{background:var(--gold);padding:0.7rem 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;animation:ticker 20s linear infinite}
+.ticker-inner span{font-size:0.72rem;letter-spacing:0.25em;color:var(--dark);text-transform:uppercase;padding:0 3rem;font-weight:500}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.stat{padding:3rem 2rem;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--gold);line-height:1}
+.stat-label{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5;margin-top:0.5rem}
+
+/* SECTION */
+.section{padding:7rem 4rem;max-width:1400px;margin:0 auto}
+.section-header{margin-bottom:5rem}
+.section-tag{font-size:0.7rem;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem}
+.section-tag::before{content:'';width:30px;height:1px;background:var(--gold)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1.1}
+.section-title em{font-style:italic;color:var(--gold)}
+
+/* PRODUCTS */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light)}
+.product-card{background:var(--dark);padding:0;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden}
+.product-card:hover{background:#0f0c08}
+.product-card:hover .product-overlay{opacity:1}
+.product-img{aspect-ratio:3/4;background:var(--mid);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-emoji{font-size:5.5rem;transition:transform 0.3s}
+.product-card:hover .product-emoji{transform:scale(1.08)}
+.product-badge{position:absolute;top:1.2rem;left:0;background:var(--gold);color:var(--dark);font-size:0.62rem;padding:0.25rem 0.8rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500}
+.product-ref{position:absolute;bottom:1rem;right:1rem;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);opacity:0.6;text-transform:uppercase}
+.product-overlay{position:absolute;inset:0;background:rgba(201,169,110,0.08);opacity:0;transition:opacity 0.3s;display:flex;align-items:center;justify-content:center}
+.overlay-btn{background:var(--gold);color:var(--dark);border:none;padding:0.7rem 1.5rem;font-size:0.75rem;letter-spacing:0.1em;cursor:pointer;text-transform:uppercase;font-family:'DM Sans',sans-serif}
+.product-info{padding:1.5rem}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;margin-bottom:0.4rem}
+.product-desc{font-size:0.78rem;opacity:0.5;line-height:1.6;margin-bottom:1rem}
+.product-bottom{display:flex;justify-content:space-between;align-items:flex-end}
+.product-price{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.4rem}
+.product-price-old{font-size:0.78rem;opacity:0.35;text-decoration:line-through;display:block;font-family:'DM Sans',sans-serif}
+.product-colors{display:flex;gap:5px}
+.color-dot{width:12px;height:12px;border-radius:50%;border:1px solid rgba(255,255,255,0.2)}
+
+/* BANNERS */
+.info-strip{background:var(--mid);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:1400px;margin:0 auto}
+.info-item{padding:3.5rem 3rem;border-right:1px solid var(--border);text-align:center}
+.info-item:last-child{border-right:none}
+.info-icon{font-size:2.2rem;margin-bottom:1.2rem}
+.info-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);margin-bottom:0.6rem}
+.info-text{font-size:0.8rem;opacity:0.55;line-height:1.7}
+
+/* MAYOR */
+.mayor-section{background:var(--mid);border-top:1px solid var(--border)}
+.mayor-inner{max-width:1400px;margin:0 auto;padding:7rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.mayor-table{width:100%;border-collapse:collapse}
+.mayor-table th{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);padding:0.8rem 1rem;border-bottom:1px solid var(--border);text-align:left}
+.mayor-table td{padding:1rem;border-bottom:1px solid var(--border-light);font-size:0.88rem;opacity:0.8}
+.mayor-table tr:hover td{opacity:1;background:rgba(201,169,110,0.04)}
+.mayor-highlight{color:var(--gold)!important;opacity:1!important;font-weight:500}
+
+/* FOOTER */
+footer{padding:4rem;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;max-width:1400px;margin:0 auto}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;letter-spacing:0.18em;color:var(--gold);margin-bottom:1rem}
+.footer-text{font-size:0.8rem;opacity:0.45;line-height:1.8}
+.footer-col h4{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.footer-col a{display:block;font-size:0.82rem;opacity:0.5;text-decoration:none;color:var(--text);margin-bottom:0.6rem;transition:opacity 0.2s}
+.footer-col a:hover{opacity:1;color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--border);padding:1.5rem 4rem;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;opacity:0.35}
+
+/* CHAT */
+.chat-bubble{position:fixed;bottom:2rem;right:2rem;z-index:500}
+.chat-toggle{width:62px;height:62px;background:var(--gold);border:none;border-radius:50%;cursor:pointer;font-size:1.6rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(201,169,110,0.35);transition:transform 0.2s}
+.chat-toggle:hover{transform:scale(1.08)}
+.chat-notif{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#e74c3c;border-radius:50%;font-size:0.65rem;color:white;display:flex;align-items:center;justify-content:center;font-weight:600}
+.chat-window{position:fixed;bottom:6rem;right:2rem;width:390px;background:#1a1410;border:1px solid var(--border);z-index:500;display:none;flex-direction:column;border-radius:14px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.7);max-height:600px}
+.chat-window.open{display:flex}
+.chat-header{background:var(--gold);padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center}
+.chat-header-left{display:flex;align-items:center;gap:0.8rem}
+.chat-avatar{width:40px;height:40px;background:var(--dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.chat-name{font-weight:500;font-size:0.92rem;color:var(--dark)}
+.chat-status{font-size:0.72rem;color:rgba(10,8,5,0.65)}
+.mode-badge{background:rgba(10,8,5,0.15);color:var(--dark);font-size:0.62rem;padding:0.2rem 0.6rem;border-radius:1rem;font-weight:500}
+.quick-scroll{display:flex;gap:0.4rem;padding:0.65rem 0.8rem;border-bottom:1px solid var(--border);background:#120f0a;overflow-x:auto;flex-shrink:0}
+.quick-scroll::-webkit-scrollbar{height:2px}
+.quick-scroll::-webkit-scrollbar-thumb{background:var(--border)}
+.q-btn{background:transparent;border:1px solid var(--border);color:var(--text);padding:0.28rem 0.65rem;font-size:0.69rem;cursor:pointer;border-radius:1rem;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:all 0.2s;flex-shrink:0}
+.q-btn:hover{border-color:var(--gold);color:var(--gold)}
+.chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:0.75rem;min-height:260px;max-height:360px}
+.chat-messages::-webkit-scrollbar{width:3px}
+.chat-messages::-webkit-scrollbar-thumb{background:var(--border)}
+.msg{max-width:90%;padding:0.7rem 1rem;border-radius:12px;font-size:0.83rem;line-height:1.55}
+.msg.bot{background:#252015;color:var(--text);align-self:flex-start;border:1px solid var(--border)}
+.msg.user{background:var(--gold);color:var(--dark);align-self:flex-end}
+.msg.sys{background:transparent;color:var(--gold);align-self:center;font-size:0.72rem;text-align:center;border:1px dashed var(--border);padding:0.35rem 0.75rem;border-radius:1rem;max-width:95%}
+.capture-form{background:#1e180f;border:1px solid var(--border);border-radius:10px;padding:1rem;align-self:flex-start;width:95%}
+.capture-form p{font-size:0.78rem;color:var(--gold);margin-bottom:0.7rem;font-weight:500}
+.f-input{width:100%;background:#120f0a;border:1px solid var(--border);color:var(--text);padding:0.5rem 0.7rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;border-radius:6px;outline:none;margin-bottom:0.45rem}
+.f-input:focus{border-color:var(--gold)}
+.f-input::placeholder{opacity:0.4}
+.f-btns{display:flex;gap:0.4rem}
+.btn-wa{background:#25d366;border:none;color:white;padding:0.5rem 0.8rem;font-size:0.78rem;cursor:pointer;border-radius:6px;font-family:'DM Sans',sans-serif;flex:1;font-weight:500}
+.btn-skip{background:transparent;border:1px solid var(--border);color:var(--text);padding:0.5rem 0.6rem;font-size:0.73rem;cursor:pointer;border-radius:6px;font-family:'DM Sans',sans-serif}
+.wa-card{background:#1e180f;border:1px solid rgba(37,211,102,0.3);border-radius:10px;padding:1rem;align-self:flex-start;width:95%}
+.wa-title{color:#25d366;font-size:0.8rem;font-weight:500;margin-bottom:0.6rem}
+.wa-btn{display:flex;align-items:center;gap:0.5rem;background:#25d366;border:none;color:white;padding:0.6rem 1rem;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;width:100%;margin-bottom:0.4rem;transition:background 0.2s}
+.wa-btn:hover{background:#1da855}
+.wa-direct{display:flex;align-items:center;gap:0.5rem;background:transparent;border:1px solid rgba(37,211,102,0.4);color:#25d366;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.76rem;width:100%}
+.chat-input-area{display:flex;padding:0.8rem;border-top:1px solid var(--border);gap:0.5rem}
+.chat-input{flex:1;background:#120f0a;border:1px solid var(--border);color:var(--text);padding:0.6rem 0.8rem;font-family:'DM Sans',sans-serif;font-size:0.83rem;border-radius:6px;outline:none}
+.chat-input:focus{border-color:var(--gold)}
+.chat-input::placeholder{opacity:0.4}
+.chat-send{background:var(--gold);border:none;color:var(--dark);width:38px;height:38px;border-radius:6px;cursor:pointer;font-size:1rem;flex-shrink:0;transition:background 0.2s}
+.chat-send:hover{background:var(--gold-light)}
+.typing{display:flex;gap:4px;align-items:center}
+.typing span{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:bounce 0.8s infinite}
+.typing span:nth-child(2){animation-delay:0.15s}
+.typing span:nth-child(3){animation-delay:0.3s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-8px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-left>*{animation:fadeUp 0.7s ease both}
+.hero-eyebrow{animation-delay:0.1s}
+.hero-h1{animation-delay:0.2s}
+.hero-sub{animation-delay:0.3s}
+.hero-btns{animation-delay:0.4s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">BLOCK<span>bag</span></div>
+  <ul class="nav-links">
+    <li><a href="#catalogo">Colección</a></li>
+    <li><a href="#mayor">Por Mayor</a></li>
+    <li><a href="#info">Envíos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openChat()">Hablar con asesor</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Colección Otoño 2025</p>
+    <h1 class="hero-h1">Bolsos que<em>hablan</em>por ti</h1>
+    <p class="hero-sub">Diseños exclusivos en cuero genuino, sintético ECO y tela bordada. Más de 200 referencias disponibles para detal y por mayor en toda Colombia.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Ver catálogo</button>
+      <button class="btn-outline" onclick="openChat();setTimeout(()=>quickAsk('Quiero pedir al por mayor'),300)">Pedir al por mayor</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-grid">
+      <div class="hero-img-cell">👜<span class="ref">Milano</span><span class="price">$189.900</span></div>
+      <div class="hero-img-cell">💼<span class="ref">Executive</span><span class="price">$219.900</span></div>
+      <div class="hero-img-cell">👛<span class="ref">Clutch</span><span class="price">$89.900</span></div>
+      <div class="hero-img-cell">🎒<span class="ref">Urban</span><span class="price">$159.900</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Envíos a todo Colombia</span><span>•</span>
+    <span>+200 referencias disponibles</span><span>•</span>
+    <span>40+ colores</span><span>•</span>
+    <span>Ventas al por mayor</span><span>•</span>
+    <span>Cuero genuino y sintético ECO</span><span>•</span>
+    <span>Pago contraentrega</span><span>•</span>
+    <span>Nequi · Daviplata · Transferencia</span><span>•</span>
+    <span>Envíos a todo Colombia</span><span>•</span>
+    <span>+200 referencias disponibles</span><span>•</span>
+    <span>40+ colores</span><span>•</span>
+    <span>Ventas al por mayor</span><span>•</span>
+    <span>Cuero genuino y sintético ECO</span><span>•</span>
+    <span>Pago contraentrega</span><span>•</span>
+    <span>Nequi · Daviplata · Transferencia</span><span>•</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Referencias</div></div>
+  <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Colores</div></div>
+  <div class="stat"><div class="stat-num">15</div><div class="stat-label">Materiales</div></div>
+  <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Envío nacional</div></div>
+</div>
+
+<!-- CATÁLOGO -->
+<section class="section" id="catalogo">
+  <div class="section-header">
+    <p class="section-tag">Catálogo 2025</p>
+    <h2 class="section-title">Colección <em>destacada</em></h2>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-emoji">👜</div>
+        <span class="product-badge">⭐ Más vendido</span>
+        <span class="product-ref">BB-001</span>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openChat();setTimeout(()=>quickAsk('Quiero info del Bolso Milano BB-001, tallas y colores'),300)">Ver detalles</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Bolso Milano</div>
+        <div class="product-desc">Cuero genuino italiano · Tallas S, M, L · 12 colores disponibles · Correa ajustable incluida</div>
+        <div class="product-bottom">
+          <div>
+            <span style="font-size:0.75rem;opacity:0.4;text-decoration:line-through;display:block">$240.000</span>
+            <span class="product-price">$189.900</span>
+          </div>
+          <div class="product-colors">
+            <div class="color-dot" style="background:#1a1a1a" title="Negro"></div>
+            <div class="color-dot" style="background:#c8a882" title="Camel"></div>
+            <div class="color-dot" style="background:#8b2020" title="Vino"></div>
+            <div class="color-dot" style="background:#2c4a6e" title="Azul"></div>
+            <div class="color-dot" style="background:#5a3e2b" title="Café"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-emoji">💼</div>
+        <span class="product-ref">BB-002</span>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openChat();setTimeout(()=>quickAsk('Cuéntame del Tote Executive BB-002'),300)">Ver detalles</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Tote Executive</div>
+        <div class="product-desc">Cuero sintético ECO · Talla única 40x32cm · 18 colores · Ideal para oficina y viaje</div>
+        <div class="product-bottom">
+          <span class="product-price">$219.900</span>
+          <div class="product-colors">
+            <div class="color-dot" style="background:#1a1a1a"></div>
+            <div class="color-dot" style="background:#f5f0e8"></div>
+            <div class="color-dot" style="background:#8b7355"></div>
+            <div class="color-dot" style="background:#2d4a3e"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-emoji">👛</div>
+        <span class="product-badge">Nuevo</span>
+        <span class="product-ref">BB-003</span>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openChat();setTimeout(()=>quickAsk('Quiero el Clutch Dorado BB-003 para una gala'),300)">Ver detalles</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Clutch Dorado</div>
+        <div class="product-desc">Tela bordada con hilo metálico · Colección gala · 8 colores · Cierre magnético premium</div>
+        <div class="product-bottom">
+          <span class="product-price">$89.900</span>
+          <div class="product-colors">
+            <div class="color-dot" style="background:#c9a96e"></div>
+            <div class="color-dot" style="background:#c0c0c0"></div>
+            <div class="color-dot" style="background:#1a1a1a"></div>
+            <div class="color-dot" style="background:#8b2060"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-emoji">🎒</div>
+        <span class="product-ref">BB-004</span>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openChat();setTimeout(()=>quickAsk('Qué tallas tiene el Morral Urban BB-004 y cuánto cuesta el envío?'),300)">Ver detalles</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Morral Urban</div>
+        <div class="product-desc">Canvas reforzado 600D · Tallas M, L, XL · 10 colores · Puerto USB interno incluido</div>
+        <div class="product-bottom">
+          <span class="product-price">$159.900</span>
+          <div class="product-colors">
+            <div class="color-dot" style="background:#1a1a1a"></div>
+            <div class="color-dot" style="background:#2c4a6e"></div>
+            <div class="color-dot" style="background:#3d5a3e"></div>
+            <div class="color-dot" style="background:#8b2020"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-emoji">🛍️</div>
+        <span class="product-badge">Mayor</span>
+        <span class="product-ref">BB-005</span>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openChat();setTimeout(()=>quickAsk('Quiero pedir el Shopper XL BB-005 al por mayor, precio y condiciones?'),300)">Ver detalles</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Shopper XL</div>
+        <div class="product-desc">Cuero ECO resistente · Talla única 45x38cm · 6 colores · Ideal mayoristas y revendedoras</div>
+        <div class="product-bottom">
+          <div>
+            <span style="font-size:0.72rem;opacity:0.5;display:block">Detal $129.900</span>
+            <span class="product-price">Mayor $72.000</span>
+          </div>
+          <div class="product-colors">
+            <div class="color-dot" style="background:#1a1a1a"></div>
+            <div class="color-dot" style="background:#c8a882"></div>
+            <div class="color-dot" style="background:#f5f0e8"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-emoji">💍</div>
+        <span class="product-ref">BB-006</span>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openChat();setTimeout(()=>quickAsk('Qué colores tiene el Mini Crossbody BB-006 y de qué material es?'),300)">Ver detalles</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Mini Crossbody</div>
+        <div class="product-desc">Cuero genuino perlado · Talla única · Correa 80–120cm · 20 colores · Tendencia 2025</div>
+        <div class="product-bottom">
+          <span class="product-price">$109.900</span>
+          <div class="product-colors">
+            <div class="color-dot" style="background:#f5c0cb"></div>
+            <div class="color-dot" style="background:#c9a96e"></div>
+            <div class="color-dot" style="background:#1a1a1a"></div>
+            <div class="color-dot" style="background:#c0c0c0"></div>
+            <div class="color-dot" style="background:#8b3a6e"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip" id="info">
+  <div class="info-grid">
+    <div class="info-item">
+      <div class="info-icon">📦</div>
+      <div class="info-title">Envíos nacionales</div>
+      <div class="info-text">Enviamos a todo Colombia con Servientrega, Interrapidísimo y Coordinadora. Bogotá y Medellín en 24h, resto del país en 48–72h.</div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🏭</div>
+      <div class="info-title">Ventas por mayor</div>
+      <div class="info-text">Mínimo 12 unidades por referencia. Descuentos hasta del 40% y envío gratis desde 50 unidades. Catálogo mayorista disponible.</div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">💳</div>
+      <div class="info-title">Formas de pago</div>
+      <div class="info-text">Nequi, Daviplata, transferencia bancaria, tarjeta crédito/débito y pago contraentrega disponible en todo el país.</div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🔄</div>
+      <div class="info-title">Cambios y garantía</div>
+      <div class="info-text">15 días para cambios por talla o color. 3 meses de garantía contra defectos de fabricación. Si llega dañado lo reponemos.</div>
+    </div>
+  </div>
+</div>
+
+<!-- POR MAYOR -->
+<section class="mayor-section" id="mayor">
+  <div class="mayor-inner">
+    <div>
+      <p class="section-tag">Distribuidores</p>
+      <h2 class="section-title" style="margin-bottom:1.5rem">Vende <em>BlockBag</em><br>en tu tienda</h2>
+      <p style="font-size:0.9rem;opacity:0.55;line-height:1.9;margin-bottom:2.5rem">Somos tu aliado para crecer. Pedidos mínimos bajos, precios competitivos y catálogo exclusivo para revendedoras. Más de 500 distribuidores activos en Colombia.</p>
+      <button class="btn-gold" onclick="openChat();setTimeout(()=>quickAsk('Quiero ser distribuidora de BlockBag, cómo funciona?'),300)">Quiero ser distribuidora</button>
+    </div>
+    <div>
+      <table class="mayor-table">
+        <thead>
+          <tr>
+            <th>Unidades</th>
+            <th>Descuento</th>
+            <th>Envío</th>
+            <th>Precio aprox.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>12 – 24 und</td><td class="mayor-highlight">20% off</td><td>$15.000</td><td>Desde $72.000</td></tr>
+          <tr><td>25 – 49 und</td><td class="mayor-highlight">30% off</td><td>$10.000</td><td>Desde $63.000</td></tr>
+          <tr><td>50 – 99 und</td><td class="mayor-highlight">40% off</td><td style="color:#25d366">Gratis</td><td>Desde $54.000</td></tr>
+          <tr><td>100+ und</td><td class="mayor-highlight">45% off</td><td style="color:#25d366">Gratis</td><td>Desde $49.500</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.75rem;opacity:0.4;margin-top:1rem">*Precios sobre referencia base BB-005 Shopper XL. Varían por referencia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="contacto">
+<footer>
+  <div>
+    <div class="footer-logo">BLOCK<em style="font-style:italic">bag</em></div>
+    <p class="footer-text">Bolsos premium para mujer. Diseño exclusivo, materiales de calidad y atención personalizada desde Colombia para el mundo.</p>
+    <p style="font-size:0.8rem;opacity:0.4;margin-top:1rem">📍 Cali, Colombia<br>📞 +57 305 229 7432<br>📧 ventas@blockbag.co</p>
+  </div>
+  <div class="footer-col">
+    <h4>Colección</h4>
+    <a href="#catalogo">Bolsos de mano</a>
+    <a href="#catalogo">Totes y Shoppers</a>
+    <a href="#catalogo">Clutch y Minibags</a>
+    <a href="#catalogo">Morrales</a>
+    <a href="#catalogo">Crossbody</a>
+  </div>
+  <div class="footer-col">
+    <h4>Información</h4>
+    <a href="#info">Envíos</a>
+    <a href="#mayor">Ventas por mayor</a>
+    <a href="#" onclick="openChat()">Cambios y garantías</a>
+    <a href="#" onclick="openChat()">Formas de pago</a>
+    <a href="#" onclick="openChat()">Contacto</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 BlockBag · Todos los derechos reservados</span>
+  <span>Diseño exclusivo · Hecho con ❤️ en Colombia</span>
+</div>
+</div>
+
+<!-- CHAT -->
+<div class="chat-bubble">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-avatar">👜</div>
+        <div>
+          <div class="chat-name">Valeria — BlockBag</div>
+          <div class="chat-status">🟢 En línea ahora</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.6rem">
+        <span class="mode-badge" id="modeBadge">Bot</span>
+        <button style="background:none;border:none;color:var(--dark);font-size:1.1rem;cursor:pointer;line-height:1" onclick="closeChat()">✕</button>
+      </div>
+    </div>
+    <div class="quick-scroll">
+      <button class="q-btn" onclick="quickAsk('¿Qué tallas manejan?')">📏 Tallas</button>
+      <button class="q-btn" onclick="quickAsk('¿Qué colores tienen?')">🎨 Colores</button>
+      <button class="q-btn" onclick="quickAsk('¿De qué material son?')">💎 Material</button>
+      <button class="q-btn" onclick="quickAsk('¿Cuánto cuestan?')">💰 Precios</button>
+      <button class="q-btn" onclick="quickAsk('¿Hacen envíos nacionales?')">📦 Envíos</button>
+      <button class="q-btn" onclick="quickAsk('¿Qué formas de pago aceptan?')">💳 Pagos</button>
+      <button class="q-btn" onclick="quickAsk('¿Puedo hacer un cambio?')">🔄 Cambios</button>
+      <button class="q-btn" onclick="quickAsk('¿Venden al por mayor?')">🏭 Mayor</button>
+      <button class="q-btn" onclick="quickAsk('Quiero hablar con un asesor')">👤 Asesor</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg bot">¡Hola! 👋 Soy <strong>Valeria</strong>, asesora virtual de <strong>BlockBag</strong>.<br><br>Puedo ayudarte con tallas, colores, materiales, precios, envíos, pagos y mucho más. ¿O prefieres hablar con una persona? 😊</div>
+    </div>
+    <div class="chat-input-area">
+      <input class="chat-input" id="chatInput" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')sendMsg()">
+      <button class="chat-send" onclick="sendMsg()">➤</button>
+    </div>
+  </div>
+  <button class="chat-toggle" id="chatToggle" onclick="openChat()">
+    💬
+    <span class="chat-notif">1</span>
+  </button>
+</div>
+
+<script>
+const WA='573052297432';
+
+const KB={
+  tallas:`¡Claro! Nuestras tallas según referencia 📏\n\n• <strong>Mini bag / Clutch:</strong> S (18x12cm) y M (22x15cm)\n• <strong>Bolso de mano:</strong> S (25x18cm), M (30x22cm), L (35x26cm)\n• <strong>Tote / Shopper:</strong> M (38x30cm) y L (45x35cm)\n• <strong>Morral:</strong> M (35x25cm), L (42x30cm), XL (48x35cm)\n• <strong>Crossbody:</strong> Talla única (20x15cm) correa 80–120cm\n\n¿Quieres que te recomiende cuál se adapta mejor a tu uso?`,
+
+  colores:`¡Más de <strong>40 colores</strong> disponibles! 🎨\n\n🖤 <strong>Clásicos:</strong> Negro intenso, café oscuro, camel, blanco hueso\n❤️ <strong>Vibrantes:</strong> Rojo vinotinto, fucsia neón, naranja, amarillo mostaza\n💙 <strong>Neutros:</strong> Azul marino, gris perla, beige, nude rosado\n🌿 <strong>Tendencia:</strong> Verde oliva, terracota, lila, borgoña\n🌸 <strong>Pasteles:</strong> Rosado baby, menta, lavanda, durazno\n✨ <strong>Especiales:</strong> Dorado metálico, plateado, animal print\n\n¿Tienes algún color en mente? Te confirmo disponibilidad.`,
+
+  materiales:`Trabajamos con <strong>15 materiales premium</strong> 💎\n\n• <strong>Cuero genuino</strong> — origen bovino, máxima durabilidad\n• <strong>Cuero sintético ECO</strong> — vegano, resistente al agua\n• <strong>Canvas 600D reforzado</strong> — casual y muy resistente\n• <strong>Tela bordada con hilo metálico</strong> — para ocasiones especiales\n• <strong>Charol brillante</strong> — look elegante y moderno\n• <strong>Cuero perlado nacarado</strong> — exclusivo, efecto perla\n• <strong>Animal print sintético</strong> — leopardo, serpiente, cebra\n\n¿Te interesa alguno en particular?`,
+
+  precios:`Nuestros precios al detal 💰\n\n• <strong>Mini bags / Clutch:</strong> $79.900 – $129.900\n• <strong>Crossbody:</strong> $89.900 – $159.900\n• <strong>Bolso de mano:</strong> $139.900 – $219.900\n• <strong>Tote y Shopper:</strong> $119.900 – $189.900\n• <strong>Morral:</strong> $149.900 – $229.900\n• <strong>Cuero genuino:</strong> tiene un adicional del 25%\n\n🏭 <strong>Al por mayor desde $49.500/und</strong> según volumen.\n\nTodos los precios incluyen IVA. ¿Qué referencia te interesa?`,
+
+  envios:`¡Enviamos a <strong>todo Colombia</strong>! 🇨🇴\n\n⏱ <strong>Tiempos de entrega:</strong>\n• Cali, Bogotá, Medellín: <strong>24 – 48h</strong>\n• Pereira, Manizales, Ibagué: <strong>48h</strong>\n• Barranquilla, Cartagena: <strong>48 – 72h</strong>\n• Municipios: <strong>72 – 96h</strong>\n\n🚚 <strong>Transportadoras:</strong> Servientrega · Interrapidísimo · Coordinadora\n\n💰 <strong>Costo:</strong> Desde $8.000 según destino y peso\n✅ <strong>Envío GRATIS</strong> en pedidos de 50+ unidades\n\n¿A qué ciudad necesitas el envío?`,
+
+  mayor:`¡Tenemos condiciones increíbles para mayoristas! 🏭\n\n<strong>Pedido mínimo:</strong> 12 unidades por referencia\n\n<strong>Tabla de descuentos:</strong>\n• 12 – 24 und → <strong>20% off</strong>\n• 25 – 49 und → <strong>30% off</strong>\n• 50 – 99 und → <strong>40% off + envío gratis</strong>\n• 100+ und → <strong>45% off + envío gratis</strong>\n\n📋 Catálogo mayorista con 200+ referencias\n✅ Puedes revender libremente sin restricciones\n💳 Pago anticipado o contraentrega disponible\n\n¿Cuántas unidades necesitas? Te hago cotización ahora.`,
+
+  cambios:`¡Sí aceptamos cambios! 🔄\n\n<strong>Política de cambios:</strong>\n• Tienes <strong>15 días</strong> desde que recibes tu pedido\n• El producto debe estar sin uso y con etiquetas\n• Aplica para cambio de talla o color\n• Cambio por el mismo valor o mayor (pagas la diferencia)\n\n<strong>Garantía de fabricación:</strong>\n• <strong>3 meses</strong> contra defectos de costura o cierre\n• Si llega dañado del envío lo <strong>reponemos sin costo</strong>\n• Foto del defecto por WhatsApp y en 48h resolvemos\n\n¿Tienes algún caso específico? Te ayudo.`,
+
+  pagos:`Aceptamos <strong>todas las formas de pago</strong> 💳\n\n📱 <strong>Billeteras digitales:</strong>\nNequi · Daviplata · Bancolombia a la mano\n\n🏦 <strong>Transferencia bancaria:</strong>\nBancolombia · Davivienda · Banco de Bogotá · todos\n\n💵 <strong>Efectivo:</strong>\nPago contraentrega disponible en todo el país\n\n💳 <strong>Tarjeta crédito/débito:</strong>\nVía link de pago seguro (Wompi / PayU)\n\n🛒 <strong>Cuotas sin interés:</strong>\nHasta 12 cuotas con Bancolombia y Davivienda\n\n¿Con cuál forma de pago prefieres?`,
+
+  productos:`¡Tenemos para cada ocasión! 👜\n\n💼 <strong>Trabajo / Oficina:</strong> Tote Executive BB-002, Morral Urban BB-004\n🎉 <strong>Evento / Gala:</strong> Clutch Dorado BB-003, Mini Crossbody BB-006\n📅 <strong>Uso diario:</strong> Bolso Milano BB-001, Shopper XL BB-005\n🏃 <strong>Sport / Viaje:</strong> Morral Urban L y XL BB-004\n💕 <strong>Romántico / Casual:</strong> Mini Crossbody BB-006, Bolso Milano S\n🎓 <strong>Universitario:</strong> Morral Urban M con puerto USB\n\n⭐ <strong>Más vendido 2025:</strong> Bolso Milano negro y camel\n\n¿Para qué ocasión buscas el bolso?`,
+
+  disponibilidad:`¡Tenemos inventario permanente! 📋\n\n✅ <strong>Stock inmediato:</strong> Referencias BB-001 al BB-006 en colores clásicos\n🔄 <strong>Reposición:</strong> Cada 15 días con nuevos colores y referencias\n⏳ <strong>Pedido personalizado:</strong> 8 – 12 días hábiles\n📦 <strong>Pedido anticipado:</strong> Sí, con 50% de anticipo\n🎨 <strong>Colores especiales:</strong> Disponibles bajo pedido +10 días\n\n¿Quieres que te confirme disponibilidad de alguna referencia o color específico?`,
+
+  cuidado:`¡Con buen cuidado duran años! 🧼\n\n<strong>Limpieza general:</strong>\n• Paño húmedo suave, nunca mojado directo\n• Jabón neutro diluido para manchas leves\n• Nunca lavadora ni secadora\n\n<strong>Cuero genuino:</strong>\n• Crema hidratante para cuero cada 2–3 meses\n• Evitar exposición directa al sol prolongada\n• Guardar en bolsa de tela (nunca plástico)\n\n<strong>Sintético / Canvas:</strong>\n• Paño húmedo o alcohol al 70% para manchas\n• Secar al aire, nunca con calor directo\n\n<strong>Almacenamiento:</strong>\n• Rellenar con papel para mantener la forma\n• Guardar en lugar fresco y seco\n\n¿Tienes alguna duda específica de cuidado?`,
+};
+
+let captureState=null;
+
+function match(t,w){return w.some(x=>t.includes(x))}
+
+function getResp(text){
+  const t=text.toLowerCase();
+  if(match(t,['talla','tamaño','medida','cabe','grande','pequeño','talle','dimensi'])) return{type:'text',c:KB.tallas};
+  if(match(t,['color','colour','negro','rojo','rosado','azul','verde','camel','blanco','fucsia','lila','nude','tono','dorad','platea'])) return{type:'text',c:KB.colores};
+  if(match(t,['material','cuero','tela','canvas','charol','sintético','sintetico','genuino','vegano','resistente','agua','dura','origin'])) return{type:'text',c:KB.materiales};
+  if(match(t,['precio','costo','cuánto','cuanto','valor','barato','caro','oferta','descuento','valen','cobran'])) return{type:'text',c:KB.precios};
+  if(match(t,['envío','envio','despacho','nacional','ciudad','llega','tiempo','transporte','días','bogotá','medellín','cali','barranquilla','entrega','domicilio'])) return{type:'text',c:KB.envios};
+  if(match(t,['mayor','mayorista','mayoreo','distribuidor','revender','reventa','cantidad','unidades','mínimo','minimo','lote','catalog'])) return{type:'text',c:KB.mayor};
+  if(match(t,['cambio','cambiar','devolu','garantía','garantia','dañado','defecto','no me gust','equivocad','roto','costura'])) return{type:'text',c:KB.cambios};
+  if(match(t,['pago','pagar','nequi','daviplata','efectivo','tarjeta','transferencia','contraentrega','cuotas','bancolombia','wompi','payu'])) return{type:'text',c:KB.pagos};
+  if(match(t,['trabajo','oficina','evento','gala','escolar','casual','viaje','sport','recomiend','vendido','popular','ocasión','ocasion','universi','regalo'])) return{type:'text',c:KB.productos};
+  if(match(t,['stock','inventario','disponib','agotado','anticipo','personaliz','demora','tienen?','hay ','existe'])) return{type:'text',c:KB.disponibilidad};
+  if(match(t,['limpiar','limpio','cuidar','mancha','mojado','guardar','almacenar','hidrat','crema','manchó','mancho'])) return{type:'text',c:KB.cuidado};
+  if(match(t,['asesor','humano','persona','hablar','agente','llam','contacto','whatsapp','ayuda','quiero hablar'])) return{type:'capture'};
+  if(match(t,['bb-001','milano'])) return{type:'text',c:'🌟 <strong>Bolso Milano BB-001</strong>\n\n• Material: Cuero genuino importado\n• Tallas: S ($169.900) · M ($189.900) · L ($209.900)\n• Colores: Negro, camel, vino, azul marino, café, verde oliva, nude, fucsia, blanco, rojo, gris, terracota\n• Incluye correa ajustable y bolsillo interior con cierre\n• En stock inmediato en colores clásicos\n\n¿Lo quieres en algún color específico? Te confirmo disponibilidad.'};
+  if(match(t,['bb-002','executive','tote'])) return{type:'text',c:'💼 <strong>Tote Executive BB-002</strong>\n\n• Material: Cuero sintético ECO resistente al agua\n• Talla única: 40x32x12cm — cabe laptop 13"\n• Colores: 18 disponibles (negro, blanco, camel, café, azul, verde...)\n• Doble asa reforzada + correa larga removible\n• Ideal para oficina, universidad y viajes cortos\n• Precio: $219.900\n\n¿Te interesa?'};
+  if(match(t,['bb-006','crossbody','mini'])) return{type:'text',c:'💍 <strong>Mini Crossbody BB-006</strong>\n\n• Material: Cuero genuino perlado nacarado\n• Talla única: 20x15x6cm\n• Correa ajustable: 80 – 120cm\n• 20 colores: rosado, dorado, plateado, negro, fucsia, lila, nude...\n• Compartimento principal + bolsillo trasero\n• Precio: $109.900\n\n¡El más trendy de la temporada! ¿En qué color lo quieres?'};
+  return{type:'text',c:'¡Hola! 💛 Puedo ayudarte con:\n\n📏 Tallas · 🎨 Colores · 💎 Materiales\n💰 Precios · 📦 Envíos · 🏭 Por mayor\n🔄 Cambios · 💳 Pagos · 👜 Productos\n📋 Disponibilidad · 🧼 Cuidado\n\nO escribe el código de referencia (ej: BB-001) para info detallada. ¿En qué te ayudo?'};
+}
+
+function fmt(t){return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}
+
+function addMsg(html,type){
+  const m=document.getElementById('chatMessages');
+  const d=document.createElement('div');
+  d.className='msg '+type;
+  d.innerHTML=fmt(html);
+  m.appendChild(d);
+  m.scrollTop=m.scrollHeight;
+  return d;
+}
+
+function addSys(txt){
+  const m=document.getElementById('chatMessages');
+  const d=document.createElement('div');
+  d.className='msg sys';
+  d.textContent=txt;
+  m.appendChild(d);
+  m.scrollTop=m.scrollHeight;
+}
+
+function showTyping(){
+  const m=document.getElementById('chatMessages');
+  const d=document.createElement('div');
+  d.className='msg bot';
+  d.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+  m.appendChild(d);
+  m.scrollTop=m.scrollHeight;
+  return d;
+}
+
+function showCapture(){
+  const m=document.getElementById('chatMessages');
+  const d=document.createElement('div');
+  d.innerHTML=`<div class="capture-form">
+    <p>👤 Déjame tus datos para conectarte:</p>
+    <input class="f-input" id="capName" placeholder="Tu nombre completo"/>
+    <input class="f-input" id="capTel" placeholder="Tu WhatsApp (opcional)"/>
+    <input class="f-input" id="capQ" placeholder="¿En qué te podemos ayudar?"/>
+    <div class="f-btns">
+      <button class="btn-wa" onclick="doCapture()">📲 Conectar con asesor</button>
+      <button class="btn-skip" onclick="doSkip()">Omitir</button>
+    </div>
+  </div>`;
+  m.appendChild(d);
+  m.scrollTop=m.scrollHeight;
+}
+
+function doCapture(){
+  const name=document.getElementById('capName').value.trim();
+  const tel=document.getElementById('capTel').value.trim();
+  const q=document.getElementById('capQ').value.trim()||'Consulta general';
+  if(!name){document.getElementById('capName').focus();return;}
+  const txt=encodeURIComponent(`¡Hola BlockBag! Soy *${name}*${tel?' — WhatsApp: '+tel:''} 👋\nVengo del chat de la página web.\n\nMi consulta es: _${q}_\n\n¿Me pueden ayudar?`);
+  const link=`https://wa.me/${WA}?text=${txt}`;
+  document.querySelector('.capture-form').closest('div').remove();
+  addSys('⏳ Conectando con asesor humano...');
+  setTimeout(()=>{
+    const badge=document.getElementById('modeBadge');
+    badge.textContent='🟢 Asesor';
+    badge.style.cssText='background:rgba(37,211,102,0.2);color:#25d366;font-size:0.62rem;padding:0.2rem 0.6rem;border-radius:1rem;font-weight:500';
+    const m=document.getElementById('chatMessages');
+    const d=document.createElement('div');
+    d.innerHTML=`<div class="wa-card">
+      <div class="wa-title">✅ ¡Listo${name?', '+name.split(' ')[0]:''}! Tu consulta ya está pre-escrita.</div>
+      <p style="font-size:0.76rem;opacity:0.7;margin-bottom:0.8rem;line-height:1.5">Un asesor real te atenderá en menos de 5 minutos. Solo abre WhatsApp y toca Enviar.</p>
+      <button class="wa-btn" onclick="window.open('${link}','_blank')">📲 Abrir WhatsApp con mensaje listo</button>
+      <button class="wa-direct" onclick="window.open('https://wa.me/${WA}','_blank')">💬 Abrir WhatsApp directo</button>
+    </div>`;
+    m.appendChild(d);
+    m.scrollTop=m.scrollHeight;
+  },1400);
+}
+
+function doSkip(){
+  document.querySelector('.capture-form').closest('div').remove();
+  const m=document.getElementById('chatMessages');
+  const d=document.createElement('div');
+  d.innerHTML=`<div class="wa-card">
+    <div class="wa-title">📲 Contacto directo con asesor</div>
+    <button class="wa-btn" onclick="window.open('https://wa.me/${WA}','_blank')">📲 Abrir WhatsApp ahora</button>
+  </div>`;
+  m.appendChild(d);
+  m.scrollTop=m.scrollHeight;
+}
+
+function sendMsg(){
+  const inp=document.getElementById('chatInput');
+  const txt=inp.value.trim();
+  if(!txt)return;
+  inp.value='';
+  addMsg(txt,'user');
+  const ty=showTyping();
+  setTimeout(()=>{
+    ty.remove();
+    const r=getResp(txt);
+    if(r.type==='capture'){
+      addMsg('¡Claro que sí! 😊 Te conecto con uno de nuestros asesores ahora mismo.','bot');
+      setTimeout(showCapture,600);
+    }else{
+      addMsg(r.c,'bot');
+    }
+  },700+Math.random()*500);
+}
+
+function quickAsk(txt){
+  const inp=document.getElementById('chatInput');
+  inp.value=txt;
+  sendMsg();
+}
+
+function openChat(){
+  document.getElementById('chatWindow').classList.add('open');
+  document.getElementById('chatToggle').style.display='none';
+}
+
+function closeChat(){
+  document.getElementById('chatWindow').classList.remove('open');
+  document.getElementById('chatToggle').style.display='flex';
+}
+</script>
+</body>
+</html>
