@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BlockBag — Bolsos Premium Colombia</title>
+<title>BolsosPremium — Bolsos Premium Colombia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -146,7 +146,7 @@ footer{padding:4rem;border-top:1px solid var(--border);display:grid;grid-templat
 </head>
 <body>
 <nav>
-  <div class="logo">BLOCK<span>bag</span></div>
+  <div class="logo">BOLSOS<span>Premium</span></div>
   <ul class="nav-links">
     <li><a href="#catalogo">Colección</a></li>
     <li><a href="#mayor">Por Mayor</a></li>
@@ -230,7 +230,7 @@ footer{padding:4rem;border-top:1px solid var(--border);display:grid;grid-templat
   <div class="mayor-inner">
     <div>
       <p class="section-tag">Distribuidores</p>
-      <h2 class="section-title" style="margin-bottom:1.5rem">Vende <em>BlockBag</em><br>en tu tienda</h2>
+      <h2 class="section-title" style="margin-bottom:1.5rem">Vende <em>BolsosPremium</em><br>en tu tienda</h2>
       <p style="font-size:0.9rem;opacity:0.55;line-height:1.9;margin-bottom:2.5rem">Somos tu aliado para crecer. Pedidos mínimos bajos, precios competitivos y catálogo exclusivo para revendedoras. Más de 500 distribuidores activos en Colombia.</p>
       <button class="btn-gold" onclick="openChat();setTimeout(()=>choose('mayor'),400)">Quiero ser distribuidora</button>
     </div>
@@ -250,21 +250,21 @@ footer{padding:4rem;border-top:1px solid var(--border);display:grid;grid-templat
 <div id="contacto">
 <footer>
   <div>
-    <div class="footer-logo">BLOCK<em style="font-style:italic">bag</em></div>
+    <div class="footer-logo">BOLSOS<em style="font-style:italic">Premium</em></div>
     <p class="footer-text">Bolsos premium para mujer. Diseño exclusivo, materiales de calidad y atención personalizada desde Colombia para el mundo.</p>
-    <p style="font-size:0.8rem;opacity:0.4;margin-top:1rem">📍 Cali, Colombia<br>📞 +57 305 229 7432<br>📧 ventas@blockbag.co</p>
+    <p style="font-size:0.8rem;opacity:0.4;margin-top:1rem">📍 Cali, Colombia<br>📞 +57 305 229 7432<br>📧 ventas@bolsospremium.co</p>
   </div>
   <div class="footer-col"><h4>Colección</h4><a href="#catalogo">Bolsos de mano</a><a href="#catalogo">Totes y Shoppers</a><a href="#catalogo">Clutch y Minibags</a><a href="#catalogo">Morrales</a><a href="#catalogo">Crossbody</a></div>
   <div class="footer-col"><h4>Información</h4><a href="#info">Envíos</a><a href="#mayor">Ventas por mayor</a><a href="#" onclick="openChat()">Cambios y garantías</a><a href="#" onclick="openChat()">Formas de pago</a><a href="#" onclick="openChat()">Contacto</a></div>
 </footer>
-<div class="footer-bottom"><span>© 2025 BlockBag · Todos los derechos reservados</span><span>Hecho con ❤️ en Colombia</span></div>
+<div class="footer-bottom"><span>© 2025 BolsosPremium · Todos los derechos reservados</span><span>Hecho con ❤️ en Colombia</span></div>
 </div>
 <div class="chat-bubble">
   <div class="chat-window" id="chatWindow">
     <div class="chat-header">
       <div class="chat-header-left">
         <div class="chat-avatar">👜</div>
-        <div><div class="chat-name">Valeria — BlockBag</div><div class="chat-status">🟢 En línea ahora</div></div>
+        <div><div class="chat-name">Valeria — BolsosPremium</div><div class="chat-status">🟢 En línea ahora</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:0.6rem">
         <span class="mode-badge" id="modeBadge">Bot</span>
@@ -343,7 +343,7 @@ function doCapture(){
   const tel=document.getElementById('capTel').value.trim();
   const q=document.getElementById('capQ').value.trim()||'Consulta general';
   if(!name){document.getElementById('capName').focus();return}
-  const txt=encodeURIComponent(`¡Hola BlockBag! Soy *${name}*${tel?' — WhatsApp: '+tel:''} 👋\nVengo del chat de la página web.\n\nMi consulta: _${q}_\n\n¿Me pueden ayudar?`);
+  const txt=encodeURIComponent(`¡Hola BolsosPremium! Soy *${name}*${tel?' — WhatsApp: '+tel:''} 👋\nVengo del chat de la página web.\n\nMi consulta: _${q}_\n\n¿Me pueden ayudar?`);
   const link=`https://wa.me/${WA}?text=${txt}`;
   document.querySelector('.capture-form').closest('div').remove();
   addSys('⏳ Conectando con asesor...');
@@ -384,7 +384,7 @@ function openChat(){
   document.getElementById('chatWindow').classList.add('open');
   document.getElementById('chatToggle').style.display='none';
   if(!document.getElementById('chatMessages').children.length){
-    setTimeout(()=>{addMsg('¡Hola! 👋 Bienvenida a **BlockBag**.\n\n¿En qué te puedo ayudar hoy?','bot');setTimeout(addMenu,600)},300);
+    setTimeout(()=>{addMsg('¡Hola! 👋 Bienvenida a **BolsosPremium**.\n\n¿En qué te puedo ayudar hoy?','bot');setTimeout(addMenu,600)},300);
   }
 }
 function closeChat(){document.getElementById('chatWindow').classList.remove('open');document.getElementById('chatToggle').style.display='flex'}
